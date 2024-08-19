@@ -368,6 +368,7 @@ float ps_particle_update_coeff = 1.f;
 
 /////////////////////////////////
 
+<<<<<<< HEAD
 // Mark Switch
 int ps_markswitch_current = 0;
 int ps_markswitch_count = 0;
@@ -381,6 +382,8 @@ Fvector4 ps_s3ds_param_4 = { 0, 0, 0, 0 };
 
 float hud_fov_aim_factor = 0;
 
+=======
+>>>>>>> f2119a9b (SSS21)
 // Screen Space Shaders Stuff
 float ps_ssfx_hud_hemi = 0.15f; // HUD Hemi Offset
 
@@ -1300,6 +1303,7 @@ void xrRender_initconsole()
 	CMD4(CCC_Vector4, "shader_param_7", &ps_dev_param_7, tw2_min, tw2_max);
 	CMD4(CCC_Vector4, "shader_param_8", &ps_dev_param_8, tw2_min, tw2_max);
 	
+<<<<<<< HEAD
 	// Mark Switch
 	CMD4(CCC_Integer, "markswitch_current", &ps_markswitch_current, 0, 32);
 	CMD4(CCC_Integer, "markswitch_count", &ps_markswitch_count, 0, 32);
@@ -1313,6 +1317,8 @@ void xrRender_initconsole()
 
 	CMD4(CCC_Float, "hud_fov_aim_factor", &hud_fov_aim_factor, 0.0f, 1.0f);
 	
+=======
+>>>>>>> f2119a9b (SSS21)
 	// Screen Space Shaders
 	CMD4(CCC_Float, "ssfx_hud_hemi", &ps_ssfx_hud_hemi, 0.0f, 1.0f);
 
@@ -1377,6 +1383,7 @@ void xrRender_initconsole()
 	
 	CMD4(CCC_Vector4, "ssfx_wpn_dof_1", &ps_ssfx_wpn_dof_1, tw2_min, tw2_max);
 	CMD4(CCC_Float, "ssfx_wpn_dof_2", &ps_ssfx_wpn_dof_2, 0, 1);
+<<<<<<< HEAD
 
 	//--DSR-- SilencerOverheat_start
 	CMD4(CCC_Float, "sil_glow_max_temp", &sil_glow_max_temp, 0.f, 1.f);
@@ -1401,6 +1408,8 @@ void xrRender_initconsole()
 	//--DSR-- HeatVision_end
 
 	CMD4(CCC_Float, "particle_update_mod", &ps_particle_update_coeff, 0.04f, 10.f);
+=======
+>>>>>>> f2119a9b (SSS21)
 
 	// Geometry optimization
 	CMD4(CCC_Integer, "r__optimize_static_geom", &opt_static, 0, 4);

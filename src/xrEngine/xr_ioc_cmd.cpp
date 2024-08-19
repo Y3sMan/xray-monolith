@@ -918,6 +918,7 @@ Ivector4 g_crosshair_color_temp;
 float g_freelook_z_offset;
 float g_ironsights_factor = 1.25f;
 
+<<<<<<< HEAD
 // crookr fake scope params (sorry)
 float scope_fog_interp = 0.15f;
 float scope_fog_travel = 0.25f;
@@ -933,6 +934,8 @@ float scope_radius = 0.f;
 float scope_fog_radius = 1.25f;
 float scope_fog_sharp = 4.0f;
 int scope_2dtexactive = 0.0;
+=======
+>>>>>>> f2119a9b (SSS21)
 Fvector3 ssfx_wetness_multiplier = Fvector3().set(1.0f, 0.3f, 0.0f);
 
 void CCC_Register()
@@ -1102,6 +1105,7 @@ void CCC_Register()
 
 	CMD4(CCC_Float, "g_ironsights_zoom_factor", &g_ironsights_factor, 1.f, 2.f);
 	CMD4(CCC_Vector3, "ssfx_wetness_multiplier", &ssfx_wetness_multiplier, Fvector3().set(0.1f, 0.1f, 0.0f), Fvector3().set(20.0f, 20.0f, 0.0f));
+<<<<<<< HEAD
 
 	// - CrookR
 	CMD2(CCC_Float, "scope_blur_outer", &scope_outerblur);
@@ -1121,6 +1125,9 @@ void CCC_Register()
 	CMD4(CCC_Float, "scope_fog_sharp", &scope_fog_sharp, 0, 1000);
 	CMD2(CCC_Integer, "scope_2dtexactive", &scope_2dtexactive);
 
+=======
+	
+>>>>>>> f2119a9b (SSS21)
 #ifdef DEBUG
     extern BOOL debug_destroy;
     CMD4(CCC_Integer, "debug_destroy", &debug_destroy, FALSE, TRUE);

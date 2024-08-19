@@ -554,7 +554,11 @@ Shader* CResourceManager::_lua_Create(LPCSTR d_shader, LPCSTR s_textures)
 			C.bDetail = dxRenderDeviceRender::Instance().Resources->m_textures_description.GetDetailTexture(
 				C.L_textures[0], C.detail_texture, C.detail_scaler);
 			S.E[0] = C._lua_Compile(s_shader, "normal");
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> f2119a9b (SSS21)
 /// SSS fix water for DX10
 #if RENDER == R_R4
 			// Water Flag

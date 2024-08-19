@@ -1086,6 +1086,7 @@ static class ssfx_issvp : public R_constant_setup
 	}
 }    ssfx_issvp;
 
+<<<<<<< HEAD
 /* --- HDR10 parameters --- */
 extern float ps_r4_hdr10_whitepoint_nits;
 extern float ps_r4_hdr10_ui_nits;
@@ -1219,6 +1220,8 @@ DECL_BINDER4F( binder_hdr10_parameters10,
 );
 /* --- HDR10 Parameters --- */
 
+=======
+>>>>>>> f2119a9b (SSS21)
 // Standart constant-binding
 void CBlender_Compile::SetMapping()
 {

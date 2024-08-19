@@ -374,6 +374,7 @@ CRenderTarget::CRenderTarget()
 	b_lut = xr_new<CBlender_lut>();
 	b_smaa = xr_new<CBlender_smaa>();
 
+<<<<<<< HEAD
 	// HDR10
 	b_hdr10_bloom_downsample = xr_new<CBlender_hdr10_bloom_downsample>();
 	b_hdr10_bloom_blur 		 = xr_new<CBlender_hdr10_bloom_blur>();
@@ -384,6 +385,8 @@ CRenderTarget::CRenderTarget()
 	b_hdr10_lens_flare_blur       = xr_new<CBlender_hdr10_lens_flare_blur>();
 	b_hdr10_lens_flare_upsample   = xr_new<CBlender_hdr10_lens_flare_upsample>();
 
+=======
+>>>>>>> f2119a9b (SSS21)
 	// Screen Space Shaders Stuff
 	b_ssfx_ssr = xr_new<CBlender_ssfx_ssr>(); // SSR
 	b_ssfx_volumetric_blur = xr_new<CBlender_ssfx_volumetric_blur>(); // Volumetric Blur
@@ -530,7 +533,11 @@ CRenderTarget::CRenderTarget()
 		rt_blur_8_zb.create(r2_RT_blur_8_zb, u32(w/8), u32(h/8), D3DFMT_D24S8);
 
 		rt_pp_bloom.create(r2_RT_pp_bloom, w, h, D3DFMT_A8R8G8B8);
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> f2119a9b (SSS21)
 		// Screen Space Shaders Stuff
 		rt_ssfx.create(r2_RT_ssfx, w, h, D3DFMT_A8R8G8B8); // Temp RT
 		rt_ssfx_temp.create(r2_RT_ssfx_temp, w, h, D3DFMT_A8R8G8B8); // Temp RT
@@ -548,7 +555,11 @@ CRenderTarget::CRenderTarget()
 		rt_ssfx_prevPos.create(r2_RT_ssfx_prevPos, w, h, D3DFMT_A16B16G16R16F, SampleCount);
 
 		rt_ssfx_hud.create(r2_RT_ssfx_hud, w, h, D3DFMT_A16B16G16R16F); // HUD mask & Velocity buffer
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> f2119a9b (SSS21)
 		if (RImplementation.o.dx10_msaa)
 		{
             rt_Generic_0_r.create(r2_RT_generic0_r, w, h, ps_r4_hdr10_on ? D3DFMT_A16B16G16R16F : D3DFMT_A8R8G8B8, SampleCount);
@@ -589,7 +600,11 @@ CRenderTarget::CRenderTarget()
 	// Screen Space Shaders Stuff
 	s_ssfx_ssr.create(b_ssfx_ssr, "r2\\ssfx_ssr"); // SSR
 	s_ssfx_volumetric_blur.create(b_ssfx_volumetric_blur, "r2\\ssfx_volumetric_blur"); // Volumetric Blur
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> f2119a9b (SSS21)
 	s_ssfx_water_ssr.create("ssfx_water_ssr"); // Water SSR
 	s_ssfx_water.create("ssfx_water"); // Water
 
@@ -1285,6 +1300,7 @@ CRenderTarget::~CRenderTarget()
 	xr_delete(b_ssfx_volumetric_blur); // Volumetric Phase
 	xr_delete(b_ssfx_ao); // AO Phase
 
+<<<<<<< HEAD
 	// HDR10
 	xr_delete(b_hdr10_bloom_downsample);
 	xr_delete(b_hdr10_bloom_blur);
@@ -1295,6 +1311,8 @@ CRenderTarget::~CRenderTarget()
 	xr_delete(b_hdr10_lens_flare_blur);
 	xr_delete(b_hdr10_lens_flare_upsample);
 
+=======
+>>>>>>> f2119a9b (SSS21)
 	if (RImplementation.o.dx10_msaa)
 	{
 		int bound = RImplementation.o.dx10_msaa_samples;

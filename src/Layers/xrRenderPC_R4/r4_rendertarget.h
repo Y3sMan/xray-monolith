@@ -189,10 +189,13 @@ public:
 	Fvector3 Position_previous;
 	bool RVelocity;
 
+<<<<<<< HEAD
 	ref_rt rt_tempzb; // Redotix99: for 3D Shader Based Scopes
 
 	ref_shader s_ssfx_dumb;
 
+=======
+>>>>>>> f2119a9b (SSS21)
 	//	Igor: for async screenshots
 	ID3DTexture2D* t_ss_async; //32bit		(r,g,b,a) is situated in the system memory
 
@@ -406,10 +409,13 @@ public:
 	void phase_ssfx_il(); // IL
 	void set_viewport_size(ID3DDeviceContext* dev, float w, float h);
 
+<<<<<<< HEAD
 	// HDR10
 	void phase_hdr10_bloom();
 	void phase_hdr10_lens_flare();
 
+=======
+>>>>>>> f2119a9b (SSS21)
 	//	Generates min/max sm
 	void create_minmax_SM();
 

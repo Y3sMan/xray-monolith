@@ -422,7 +422,11 @@ void attachable_hud_item::load(const shared_str& sect_name)
 	::Render->hud_loading = true;
 	IKinematicsAnimated* visual = ::Render->model_Create(visual_name)->dcast_PKinematicsAnimated();
 	::Render->hud_loading = false;
+<<<<<<< HEAD
 	R_ASSERT2(visual, make_string("could not create model %s, section %s", visual_name, sect_name.c_str()));
+=======
+	R_ASSERT2(visual, make_string("could not create model %s", visual_name));
+>>>>>>> f2119a9b (SSS21)
 	m_model = smart_cast<IKinematics*>(visual);
 
 	m_attach_place_idx = pSettings->r_u16(sect_name, "attach_place_idx");

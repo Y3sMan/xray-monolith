@@ -597,11 +597,18 @@ IC void CBoneInstance::construct()
 {
 	mTransform.identity();
 	mRenderTransform.identity();
+<<<<<<< HEAD
 	Callback = nullptr;
 	Callback_Param = nullptr;
 	Callback_overwrite = false;
 	Callback_type = 0;
 	ZeroMemory(&param, sizeof(param));		  
+=======
+	mRenderTransform_prev.identity();
+	mRenderTransform_temp.identity();
+
+	Callback_overwrite = FALSE;
+>>>>>>> f2119a9b (SSS21)
 }
 
 #endif

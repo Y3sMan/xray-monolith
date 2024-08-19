@@ -53,11 +53,15 @@ void CRenderTarget::phase_blur()
 	///////////////////////////////////////////////////////////////////////////////////
 	////Final blur
 	///////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 #if defined(USE_DX10) || defined(USE_DX11)
 	u_setrt(rt_blur_2, 0, 0, rt_blur_2_zb->pZRT);
 #else
 	u_setrt(rt_blur_2, 0, 0, rt_blur_2_zb);
 #endif
+=======
+	u_setrt(rt_blur_2, 0, 0, HW.pBaseZB);
+>>>>>>> f2119a9b (SSS21)
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
 
@@ -104,11 +108,15 @@ void CRenderTarget::phase_blur()
 	///////////////////////////////////////////////////////////////////////////////////
 	////Final blur
 	///////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 #if defined(USE_DX10) || defined(USE_DX11)
 	u_setrt(rt_blur_4, 0, 0, rt_blur_4_zb->pZRT);
 #else
 	u_setrt(rt_blur_4, 0, 0, rt_blur_4_zb);
 #endif
+=======
+	u_setrt(rt_blur_4, 0, 0, HW.pBaseZB);
+>>>>>>> f2119a9b (SSS21)
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
 
@@ -131,11 +139,15 @@ void CRenderTarget::phase_blur()
 	w = float(Device.dwWidth) * 0.125f;
 	h = float(Device.dwHeight) * 0.125f;
 
+<<<<<<< HEAD
 #if defined(USE_DX10) || defined(USE_DX11)
 	u_setrt(rt_blur_h_8, 0, 0, rt_blur_8_zb->pZRT);
 #else
 	u_setrt(rt_blur_h_8, 0, 0, rt_blur_8_zb);
 #endif
+=======
+	u_setrt(rt_blur_h_8, 0, 0, HW.pBaseZB);
+>>>>>>> f2119a9b (SSS21)
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
 
@@ -155,11 +167,15 @@ void CRenderTarget::phase_blur()
 	///////////////////////////////////////////////////////////////////////////////////
 	////Final blur
 	///////////////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 #if defined(USE_DX10) || defined(USE_DX11)
 	u_setrt(rt_blur_8, 0, 0, rt_blur_8_zb->pZRT);
 #else
 	u_setrt(rt_blur_8, 0, 0, rt_blur_8_zb);
 #endif
+=======
+	u_setrt(rt_blur_8, 0, 0, HW.pBaseZB);
+>>>>>>> f2119a9b (SSS21)
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
 

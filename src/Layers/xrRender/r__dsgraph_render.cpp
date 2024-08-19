@@ -118,7 +118,11 @@ void __fastcall water_node(mapSorted_Node* N)
 		RCache.set_Shader(RImplementation.Target->s_ssfx_water);
 	}
 #endif
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> f2119a9b (SSS21)
 	RCache.set_xform_world(N->val.Matrix);
 	RImplementation.apply_object(N->val.pObject);
 	RImplementation.apply_lmaterial();
@@ -131,14 +135,22 @@ void __fastcall water_node(mapSorted_Node* N)
 	V->Render(calcLOD(N->key, V->vis.sphere.R));
 }
 
+<<<<<<< HEAD
 void __fastcall hud_node(mapSorted_Node * N)
 {
 	VERIFY(N);
 	dxRender_Visual * V = N->val.pVisual;
+=======
+void __fastcall hud_node(mapSorted_Node* N)
+{
+	VERIFY(N);
+	dxRender_Visual* V = N->val.pVisual;
+>>>>>>> f2119a9b (SSS21)
 	VERIFY(V && V->shader._get());
 	RCache.set_xform_world(N->val.Matrix);
 
 #ifdef USE_DX11
+<<<<<<< HEAD
 	
 	if (N->val.se->passes[0]->ps->hud_disabled)
 		return;
@@ -146,6 +158,15 @@ void __fastcall hud_node(mapSorted_Node * N)
 	int skinning = N->val.se->passes[0]->vs->skinning;
 	RCache.set_Shader(RImplementation.Target->s_ssfx_hud[skinning]);
 	
+=======
+
+	if (N->val.se->passes[0]->ps->hud_disabled)
+		return;
+
+	int skinning = N->val.se->passes[0]->vs->skinning;
+	RCache.set_Shader(RImplementation.Target->s_ssfx_hud[skinning]);
+
+>>>>>>> f2119a9b (SSS21)
 	RImplementation.Target->Matrix_HUD_previous.set(N->val.PrevMatrix);
 	N->val.PrevMatrix.set(RCache.xforms.m_wvp);
 
@@ -158,7 +179,10 @@ void __fastcall hud_node(mapSorted_Node * N)
 #ifdef USE_DX11
 	RImplementation.Target->RVelocity = false;
 #endif
+<<<<<<< HEAD
 }
+=======
+>>>>>>> f2119a9b (SSS21)
 
 IC bool cmp_vs_nrm(mapNormalVS::TNode* N1, mapNormalVS::TNode* N2)
 {
@@ -600,6 +624,15 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 	{
 		mapHUD.traverseLR(sorted_L1);
 		mapHUD.clear();
+<<<<<<< HEAD
+=======
+	}
+	else
+	{
+		HUDMask.traverseLR(hud_node);
+		HUDMask.clear();
+	}
+>>>>>>> f2119a9b (SSS21)
 
 		rmNormal();
 		

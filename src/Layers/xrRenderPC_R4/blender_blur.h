@@ -52,4 +52,8 @@ public:
 
 	CBlender_ssfx_ao();
 	virtual ~CBlender_ssfx_ao();
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> f2119a9b (SSS21)

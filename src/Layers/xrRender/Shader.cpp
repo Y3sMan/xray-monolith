@@ -108,12 +108,15 @@ ShaderElement::ShaderElement()
 	// SSS Custom rendering
 	flags.isLandscape = FALSE;
 	flags.isWater = FALSE;
+<<<<<<< HEAD
 
 	flags.iScopeLense = 0; 	//  Redotix99: for 3D Shader Based Scopes
 	//	0 = eNoLense, 
 	//  1 = eBackLense, 
 	//  2 = eZwriteLense, 
 	//	3 = eReticleLense
+=======
+>>>>>>> f2119a9b (SSS21)
 }
 
 BOOL ShaderElement::equal(ShaderElement& S)
