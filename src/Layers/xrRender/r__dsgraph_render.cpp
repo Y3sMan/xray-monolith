@@ -199,9 +199,13 @@ void __fastcall hud_node(mapSorted_Node * N)
 	RImplementation.Target->RVelocity = false;
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 >>>>>>> f2119a9b (SSS21)
+=======
+}
+>>>>>>> 10be5042 (fix)
 
 IC bool cmp_vs_nrm(mapNormalVS::TNode* N1, mapNormalVS::TNode* N2)
 {
