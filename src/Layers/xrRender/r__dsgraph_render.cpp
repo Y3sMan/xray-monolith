@@ -667,16 +667,17 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 void R_dsgraph_structure::r_dsgraph_render_hud_ui()
 {
 	// Change projection
-	Fmatrix Pold = Device.mProject;
-	Fmatrix FTold = Device.mFullTransform;
-	Device.mProject.build_projection(
-		deg2rad(psHUD_FOV * 83.f),
-		Device.fASPECT, R_VIEWPORT_NEAR,
-		g_pGamePersistent->Environment().CurrentEnv->far_plane);
+    Fmatrix Pold = Device.mProject;
+    Fmatrix FTold = Device.mFullTransform;
+    Device.mProject.build_projection(
+        deg2rad(psHUD_FOV * 83.f),
+        Device.fASPECT, R_VIEWPORT_NEAR,
+        g_pGamePersistent->Environment().CurrentEnv->far_plane);
 
-	Device.mFullTransform.mul(Device.mProject, Device.mView);
-	RCache.set_xform_project(Device.mProject);
+    Device.mFullTransform.mul(Device.mProject, Device.mView);
+    RCache.set_xform_project(Device.mProject);
 
+<<<<<<< HEAD
 	rmNear();
 	g_hud->RenderActiveItemUI();
 	rmNormal();
@@ -685,6 +686,16 @@ void R_dsgraph_structure::r_dsgraph_render_hud_ui()
 	Device.mProject = Pold;
 	Device.mFullTransform = FTold;
 	RCache.set_xform_project(Device.mProject);
+=======
+    rmNear();
+    g_hud->RenderActiveItemUI();
+    rmNormal();
+
+    // Restore projection
+    Device.mProject = Pold;
+    Device.mFullTransform = FTold;
+    RCache.set_xform_project(Device.mProject);
+>>>>>>> eea65b36 (fix r__dsgraph_render)
 }
 
 //////////////////////////////////////////////////////////////////////////
