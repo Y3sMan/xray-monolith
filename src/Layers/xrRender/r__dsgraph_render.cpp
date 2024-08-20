@@ -119,10 +119,14 @@ void __fastcall water_node(mapSorted_Node* N)
 	}
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 =======
 
 >>>>>>> f2119a9b (SSS21)
+=======
+	
+>>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
 	RCache.set_xform_world(N->val.Matrix);
 	RImplementation.apply_object(N->val.pObject);
 	RImplementation.apply_lmaterial();
@@ -136,6 +140,7 @@ void __fastcall water_node(mapSorted_Node* N)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void __fastcall hud_node(mapSorted_Node * N)
 {
 	VERIFY(N);
@@ -146,10 +151,17 @@ void __fastcall hud_node(mapSorted_Node* N)
 	VERIFY(N);
 	dxRender_Visual* V = N->val.pVisual;
 >>>>>>> f2119a9b (SSS21)
+=======
+void __fastcall hud_node(mapSorted_Node * N)
+{
+	VERIFY(N);
+	dxRender_Visual * V = N->val.pVisual;
+>>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
 	VERIFY(V && V->shader._get());
 	RCache.set_xform_world(N->val.Matrix);
 
 #ifdef USE_DX11
+<<<<<<< HEAD
 <<<<<<< HEAD
 	
 	if (N->val.se->passes[0]->ps->hud_disabled)
@@ -160,13 +172,20 @@ void __fastcall hud_node(mapSorted_Node* N)
 	
 =======
 
+=======
+	
+>>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
 	if (N->val.se->passes[0]->ps->hud_disabled)
 		return;
-
+	
 	int skinning = N->val.se->passes[0]->vs->skinning;
 	RCache.set_Shader(RImplementation.Target->s_ssfx_hud[skinning]);
+<<<<<<< HEAD
 
 >>>>>>> f2119a9b (SSS21)
+=======
+	
+>>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
 	RImplementation.Target->Matrix_HUD_previous.set(N->val.PrevMatrix);
 	N->val.PrevMatrix.set(RCache.xforms.m_wvp);
 
@@ -634,6 +653,7 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 	}
 >>>>>>> f2119a9b (SSS21)
 
+<<<<<<< HEAD
 		rmNormal();
 		
 #if defined(USE_DX11) //  Redotix99: for 3D Shader Based Scopes 		
@@ -656,6 +676,9 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 
 		rmNormal();
 	}
+=======
+	rmNormal();
+>>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
 
 	// Restore projection
 	Device.mProject = Pold;
@@ -667,16 +690,17 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 void R_dsgraph_structure::r_dsgraph_render_hud_ui()
 {
 	// Change projection
-    Fmatrix Pold = Device.mProject;
-    Fmatrix FTold = Device.mFullTransform;
-    Device.mProject.build_projection(
-        deg2rad(psHUD_FOV * 83.f),
-        Device.fASPECT, R_VIEWPORT_NEAR,
-        g_pGamePersistent->Environment().CurrentEnv->far_plane);
+	Fmatrix Pold = Device.mProject;
+	Fmatrix FTold = Device.mFullTransform;
+	Device.mProject.build_projection(
+		deg2rad(psHUD_FOV * 83.f),
+		Device.fASPECT, R_VIEWPORT_NEAR,
+		g_pGamePersistent->Environment().CurrentEnv->far_plane);
 
-    Device.mFullTransform.mul(Device.mProject, Device.mView);
-    RCache.set_xform_project(Device.mProject);
+	Device.mFullTransform.mul(Device.mProject, Device.mView);
+	RCache.set_xform_project(Device.mProject);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 	rmNear();
 	g_hud->RenderActiveItemUI();
@@ -696,6 +720,16 @@ void R_dsgraph_structure::r_dsgraph_render_hud_ui()
     Device.mFullTransform = FTold;
     RCache.set_xform_project(Device.mProject);
 >>>>>>> eea65b36 (fix r__dsgraph_render)
+=======
+	rmNear();
+	g_hud->RenderActiveItemUI();
+	rmNormal();
+
+	// Restore projection
+	Device.mProject = Pold;
+	Device.mFullTransform = FTold;
+	RCache.set_xform_project(Device.mProject);
+>>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
 }
 
 //////////////////////////////////////////////////////////////////////////
