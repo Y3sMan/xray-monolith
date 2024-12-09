@@ -981,10 +981,14 @@ static class ssfx_wind_anim : public R_constant_setup
 	virtual void setup(R_constant* C)
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		RCache.set_c(C, g_pGamePersistent->Environment().wind_anim);
 =======
 		RCache.set_c(C, g_pGamePersistent->Environment().wind_anim.x, g_pGamePersistent->Environment().wind_anim.y, g_pGamePersistent->Environment().wind_anim.z, 0);
 >>>>>>> 1c558d34 (SSS22)
+=======
+		RCache.set_c(C, g_pGamePersistent->Environment().wind_anim);
+>>>>>>> fa54434a (SSS22 fix)
 	}
 }    ssfx_wind_anim;
 
