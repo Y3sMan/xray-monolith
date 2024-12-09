@@ -688,6 +688,7 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 >>>>>>> 1c558d34 (SSS22)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		rmNormal();
 		
 #if defined(USE_DX11) //  Redotix99: for 3D Shader Based Scopes 		
@@ -711,6 +712,8 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 		rmNormal();
 	}
 =======
+=======
+>>>>>>> 88ed14bf (r__dsgraph_render fix)
 	rmNormal();
 >>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
 
@@ -736,6 +739,9 @@ void R_dsgraph_structure::r_dsgraph_render_hud_ui()
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 88ed14bf (r__dsgraph_render fix)
 	rmNear();
 	g_hud->RenderActiveItemUI();
 	rmNormal();
