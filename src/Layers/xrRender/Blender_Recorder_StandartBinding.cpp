@@ -982,6 +982,7 @@ static class ssfx_wind_anim : public R_constant_setup
 	{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		RCache.set_c(C, g_pGamePersistent->Environment().wind_anim);
 =======
 		RCache.set_c(C, g_pGamePersistent->Environment().wind_anim.x, g_pGamePersistent->Environment().wind_anim.y, g_pGamePersistent->Environment().wind_anim.z, 0);
@@ -989,6 +990,9 @@ static class ssfx_wind_anim : public R_constant_setup
 =======
 		RCache.set_c(C, g_pGamePersistent->Environment().wind_anim);
 >>>>>>> fa54434a (SSS22 fix)
+=======
+		RCache.set_c(C, g_pGamePersistent->Environment().wind_anim);
+>>>>>>> 07bd5cad (SSS22 fix)
 	}
 }    ssfx_wind_anim;
 
