@@ -109,6 +109,7 @@ ShaderElement::ShaderElement()
 	flags.isLandscape = FALSE;
 	flags.isWater = FALSE;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	flags.iScopeLense = 0; 	//  Redotix99: for 3D Shader Based Scopes
 	//	0 = eNoLense, 
@@ -117,6 +118,8 @@ ShaderElement::ShaderElement()
 	//	3 = eReticleLense
 =======
 >>>>>>> f2119a9b (SSS21)
+=======
+>>>>>>> 1c558d34 (SSS22)
 }
 
 BOOL ShaderElement::equal(ShaderElement& S)

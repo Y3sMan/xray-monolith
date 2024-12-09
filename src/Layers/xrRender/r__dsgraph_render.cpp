@@ -120,6 +120,7 @@ void __fastcall water_node(mapSorted_Node* N)
 #endif
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 =======
 
@@ -127,6 +128,9 @@ void __fastcall water_node(mapSorted_Node* N)
 =======
 	
 >>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
+=======
+
+>>>>>>> 1c558d34 (SSS22)
 	RCache.set_xform_world(N->val.Matrix);
 	RImplementation.apply_object(N->val.pObject);
 	RImplementation.apply_lmaterial();
@@ -141,15 +145,19 @@ void __fastcall water_node(mapSorted_Node* N)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 void __fastcall hud_node(mapSorted_Node * N)
 {
 	VERIFY(N);
 	dxRender_Visual * V = N->val.pVisual;
 =======
+=======
+>>>>>>> 1c558d34 (SSS22)
 void __fastcall hud_node(mapSorted_Node* N)
 {
 	VERIFY(N);
 	dxRender_Visual* V = N->val.pVisual;
+<<<<<<< HEAD
 >>>>>>> f2119a9b (SSS21)
 =======
 void __fastcall hud_node(mapSorted_Node * N)
@@ -157,12 +165,15 @@ void __fastcall hud_node(mapSorted_Node * N)
 	VERIFY(N);
 	dxRender_Visual * V = N->val.pVisual;
 >>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
+=======
+>>>>>>> 1c558d34 (SSS22)
 	VERIFY(V && V->shader._get());
 	RCache.set_xform_world(N->val.Matrix);
 
 #ifdef USE_DX11
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 	if (N->val.se->passes[0]->ps->hud_disabled)
 		return;
@@ -186,6 +197,15 @@ void __fastcall hud_node(mapSorted_Node * N)
 =======
 	
 >>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
+=======
+
+	if (N->val.se->passes[0]->ps->hud_disabled)
+		return;
+
+	int skinning = N->val.se->passes[0]->vs->skinning;
+	RCache.set_Shader(RImplementation.Target->s_ssfx_hud[skinning]);
+
+>>>>>>> 1c558d34 (SSS22)
 	RImplementation.Target->Matrix_HUD_previous.set(N->val.PrevMatrix);
 	N->val.PrevMatrix.set(RCache.xforms.m_wvp);
 
@@ -200,12 +220,16 @@ void __fastcall hud_node(mapSorted_Node * N)
 #endif
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 >>>>>>> f2119a9b (SSS21)
 =======
 }
 >>>>>>> 10be5042 (fix)
+=======
+}
+>>>>>>> 1c558d34 (SSS22)
 
 IC bool cmp_vs_nrm(mapNormalVS::TNode* N1, mapNormalVS::TNode* N2)
 {
@@ -648,14 +672,20 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 		mapHUD.traverseLR(sorted_L1);
 		mapHUD.clear();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 1c558d34 (SSS22)
 	}
 	else
 	{
 		HUDMask.traverseLR(hud_node);
 		HUDMask.clear();
 	}
+<<<<<<< HEAD
 >>>>>>> f2119a9b (SSS21)
+=======
+>>>>>>> 1c558d34 (SSS22)
 
 <<<<<<< HEAD
 		rmNormal();
@@ -798,12 +828,13 @@ void R_dsgraph_structure::r_dsgraph_render_ScopeSorted()  //  Redotix99: for 3D 
 
 //////////////////////////////////////////////////////////////////////////
 // strict-sorted render
-void R_dsgraph_structure::r_dsgraph_render_emissive()
+void R_dsgraph_structure::r_dsgraph_render_emissive(bool clear, bool renderHUD)
 {
 #if	RENDER!=R_R1
 	// Sorted (back to front)
 	mapEmissive.traverseLR(sorted_L1);
-	mapEmissive.clear();
+	if (clear)
+		mapEmissive.clear();
 
 	// Change projection
 	Fmatrix Pold = Device.mProject;
@@ -820,7 +851,12 @@ void R_dsgraph_structure::r_dsgraph_render_emissive()
 	rmNear();
 	// Sorted (back to front)
 	mapHUDEmissive.traverseLR(sorted_L1);
-	mapHUDEmissive.clear();
+	
+	if (clear)
+		mapHUDEmissive.clear();
+
+	if (renderHUD)
+		mapHUDSorted.traverseRL(sorted_L1);
 
 	rmNormal();
 

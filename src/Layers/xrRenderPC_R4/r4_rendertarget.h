@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../xrRender/ColorMapManager.h"
-
+#include "../xrRender/light_db.h"
 class light;
 
 //#define DU_SPHERE_NUMVERTEX 92
@@ -76,6 +76,17 @@ public:
 	IBlender* b_hdao_msaa_cs;
 
 	// [SSS Stuff]
+<<<<<<< HEAD
+=======
+	IBlender* b_ssfx_rain;
+	IBlender* b_ssfx_water_blur;
+	IBlender* b_ssfx_bloom_downsample;
+	IBlender* b_ssfx_bloom_upsample;
+	IBlender* b_ssfx_bloom;
+	IBlender* b_ssfx_bloom_lens;
+	IBlender* b_ssfx_sss_ext;
+	IBlender* b_ssfx_sss;
+>>>>>>> 1c558d34 (SSS22)
 	IBlender* b_ssfx_ssr;
 	IBlender* b_ssfx_volumetric_blur;
 	IBlender* b_ssfx_ao;
@@ -177,9 +188,39 @@ public:
 	ref_rt rt_ssfx_ao;
 	ref_rt rt_ssfx_il;
 
+<<<<<<< HEAD
 	ref_rt rt_ssfx_prevPos;
 
 	ref_shader s_ssfx_water;
+=======
+	ref_rt rt_ssfx_sss;
+	ref_rt rt_ssfx_sss_ext;
+	ref_rt rt_ssfx_sss_ext2;
+	ref_rt rt_ssfx_sss_tmp;
+	ref_rt rt_ssfx_bloom1;
+	ref_rt rt_ssfx_bloom_emissive;
+	ref_rt rt_ssfx_bloom_lens;
+	ref_rt rt_ssfx_rain;
+	ref_rt rt_ssfx_volumetric;
+	ref_rt rt_ssfx_volumetric_tmp;
+
+	ref_rt rt_ssfx_bloom_tmp2;
+	ref_rt rt_ssfx_bloom_tmp4;
+	ref_rt rt_ssfx_bloom_tmp8;
+	ref_rt rt_ssfx_bloom_tmp16;
+	ref_rt rt_ssfx_bloom_tmp32;
+	ref_rt rt_ssfx_bloom_tmp64;
+
+	ref_rt rt_ssfx_bloom_tmp32_2;
+	ref_rt rt_ssfx_bloom_tmp16_2;
+	ref_rt rt_ssfx_bloom_tmp8_2;
+	ref_rt rt_ssfx_bloom_tmp4_2;
+
+	ref_rt rt_ssfx_prevPos;
+
+	ref_shader s_ssfx_water;
+	ref_shader s_ssfx_water_blur;
+>>>>>>> 1c558d34 (SSS22)
 	ref_shader s_ssfx_water_ssr;
 	ref_shader s_ssfx_ao;
 	ref_shader s_ssfx_hud[5];
@@ -190,12 +231,15 @@ public:
 	bool RVelocity;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	ref_rt rt_tempzb; // Redotix99: for 3D Shader Based Scopes
 
 	ref_shader s_ssfx_dumb;
 
 =======
 >>>>>>> f2119a9b (SSS21)
+=======
+>>>>>>> 1c558d34 (SSS22)
 	//	Igor: for async screenshots
 	ID3DTexture2D* t_ss_async; //32bit		(r,g,b,a) is situated in the system memory
 
@@ -259,6 +303,17 @@ private:
 	ref_shader s_accum_volume_msaa[8];
 
 	// Screen Space Shaders Stuff
+<<<<<<< HEAD
+=======
+	ref_shader s_ssfx_rain;
+	ref_shader s_ssfx_bloom;
+	ref_shader s_ssfx_bloom_lens;
+	ref_shader s_ssfx_bloom_upsample;
+	ref_shader s_ssfx_bloom_downsample;
+	ref_shader s_ssfx_sss_ext;
+	ref_shader s_ssfx_sss;
+
+>>>>>>> 1c558d34 (SSS22)
 	ref_shader s_ssfx_ssr;
 	ref_shader s_ssfx_volumetric_blur;
 
@@ -345,6 +400,7 @@ private:
 
 	//	Igor: used for volumetric lights
 	bool m_bHasActiveVolumetric;
+	bool m_bHasActiveVolumetric_spot;
 public:
 	CRenderTarget();
 	~CRenderTarget();
@@ -401,6 +457,14 @@ public:
 	void shadow_direct(light* L, u32 dls_phase);
 
 	// SSS Stuff
+<<<<<<< HEAD
+=======
+	void phase_ssfx_rain(); // Bloom PP
+	void phase_ssfx_bloom(); // Bloom PP
+	void phase_ssfx_sss(); // SSS
+	void phase_ssfx_sss_ext(light_Package& LP); // SSS Spot lights
+
+>>>>>>> 1c558d34 (SSS22)
 	void phase_ssfx_ssr(); // SSR Phase
 	void phase_ssfx_volumetric_blur(); // Volumetric Blur
 	void phase_ssfx_water_blur(); // Water Blur
@@ -410,12 +474,15 @@ public:
 	void set_viewport_size(ID3DDeviceContext* dev, float w, float h);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	// HDR10
 	void phase_hdr10_bloom();
 	void phase_hdr10_lens_flare();
 
 =======
 >>>>>>> f2119a9b (SSS21)
+=======
+>>>>>>> 1c558d34 (SSS22)
 	//	Generates min/max sm
 	void create_minmax_SM();
 

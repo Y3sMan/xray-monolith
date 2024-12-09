@@ -388,6 +388,73 @@ void CRenderTarget::phase_combine()
 	if (ssfx_PrevPos_Requiered)
 		HW.pContext->CopyResource(rt_ssfx_prevPos->pTexture->surface_get(), rt_Position->pTexture->surface_get());
 
+	if (RImplementation.o.ssfx_ssr && !Device.m_SecondViewport.IsSVPFrame())
+	{
+		ssfx_PrevPos_Requiered = true;
+		phase_ssfx_ssr(); // [SSFX] - New SSR Phase
+	}
+
+	// [SSFX] - Water SSR rendering
+	if (RImplementation.o.ssfx_water && !Device.m_SecondViewport.IsSVPFrame())
+	{
+		FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
+		HW.pContext->ClearRenderTargetView(rt_ssfx_temp->pRT, ColorRGBA);
+		HW.pContext->ClearRenderTargetView(rt_ssfx_temp2->pRT, ColorRGBA);
+
+		if (!RImplementation.o.dx10_msaa)
+			u_setrt(rt_ssfx_temp, 0, 0, 0);
+		else
+			u_setrt(rt_ssfx_temp, 0, 0, 0);
+
+		float w = float(Device.dwWidth);
+		float h = float(Device.dwHeight);
+
+		// Render Scale
+		set_viewport_size(HW.pContext, w / ps_ssfx_water.x, h / ps_ssfx_water.x);
+
+		// Render Water SSR
+		RCache.set_xform_world(Fidentity);
+		RImplementation.r_dsgraph_render_water_ssr();
+
+		// Restore Viewport
+		set_viewport_size(HW.pContext, w, h);
+
+		// Save Frame
+		HW.pContext->CopyResource(rt_ssfx_water->pTexture->surface_get(), rt_ssfx_temp->pTexture->surface_get());
+
+		// Water SSR Blur
+		phase_ssfx_water_blur();
+
+		// Water waves
+		phase_ssfx_water_waves();
+	}
+
+	if (!RImplementation.o.dx10_msaa)
+		u_setrt(rt_Generic_0, 0, 0, HW.pBaseZB);
+	else
+		u_setrt(rt_Generic_0_r, 0, 0, rt_MSAADepth->pZRT);
+
+	// Final water rendering ( All the code above can be omitted if the Water module isn't installed )
+	RCache.set_xform_world(Fidentity);
+	RImplementation.r_dsgraph_render_water();
+
+	{
+		if (RImplementation.o.ssfx_rain)
+		{
+			phase_ssfx_rain(); // Render a small color buffer to do the refraction and more
+
+			if (!RImplementation.o.dx10_msaa)
+				u_setrt(rt_Generic_0, 0, 0, HW.pBaseZB);
+			else
+				u_setrt(rt_Generic_0_r, 0, 0, rt_MSAADepth->pZRT);
+		}
+
+		g_pGamePersistent->Environment().RenderLast(); // rain/thunder-bolts
+	}
+
+	if (ssfx_PrevPos_Requiered)
+		HW.pContext->CopyResource(rt_ssfx_prevPos->pTexture->surface_get(), rt_Position->pTexture->surface_get());
+
 	// Forward rendering
 	{
 		PIX_EVENT(Forward_rendering);
@@ -410,8 +477,16 @@ void CRenderTarget::phase_combine()
 
 	//	Igor: for volumetric lights
 	//	combine light volume here
-	if (m_bHasActiveVolumetric)
-		phase_combine_volumetric();
+	if (RImplementation.o.ssfx_volumetric)
+	{
+		if (m_bHasActiveVolumetric || m_bHasActiveVolumetric_spot)
+			phase_combine_volumetric();
+	}
+	else
+	{
+		if (m_bHasActiveVolumetric)
+			phase_combine_volumetric();
+	}
 
 	// Perform blooming filter and distortion if needed
 	RCache.set_Stencil(FALSE);
@@ -489,7 +564,17 @@ void CRenderTarget::phase_combine()
 		phase_blur();
 
 	//Compute bloom (new)
-	phase_pp_bloom();
+	if (RImplementation.o.ssfx_bloom)
+	{
+		if (!Device.m_SecondViewport.IsSVPFrame())
+			phase_ssfx_bloom();
+		else
+			HW.pContext->ClearRenderTargetView(rt_ssfx_bloom1->pRT, ColorRGBA);
+	}
+	else
+	{
+		phase_pp_bloom();
+	}
 	
 	if (ps_r2_ls_flags.test(R2FLAG_DOF))
 	{	

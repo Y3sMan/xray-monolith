@@ -598,12 +598,15 @@ IC void CBoneInstance::construct()
 	mTransform.identity();
 	mRenderTransform.identity();
 <<<<<<< HEAD
+<<<<<<< HEAD
 	Callback = nullptr;
 	Callback_Param = nullptr;
 	Callback_overwrite = false;
 	Callback_type = 0;
 	ZeroMemory(&param, sizeof(param));		  
 =======
+=======
+>>>>>>> 1c558d34 (SSS22)
 	mRenderTransform_prev.identity();
 	mRenderTransform_temp.identity();
 

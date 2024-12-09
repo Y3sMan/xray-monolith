@@ -81,6 +81,12 @@ public:
 		float c_sun;
 		float distance;
 		Fvector position;
+<<<<<<< HEAD
+=======
+		Fvector normal;
+		float alpha;
+		float alpha_target;
+>>>>>>> 1c558d34 (SSS22)
 #if RENDER==R_R1
 		Fvector c_rgb;
 #endif
@@ -119,6 +125,7 @@ public:
 		int sx, sz; // координаты слота X x Y
 		vis_data vis; // 
 		SlotPart G[dm_obj_in_slot]; // 
+		bool hidden;
 
 		Slot()
 		{

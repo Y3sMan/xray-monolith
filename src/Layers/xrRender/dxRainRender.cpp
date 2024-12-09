@@ -68,6 +68,12 @@ void dxRainRender::Render(CEffect_Rain& owner)
 	ref_shader& _splash_SH = DM_Drop->shader;
 	static shared_str s_shader_setup = "ssfx_rain_setup";
 
+<<<<<<< HEAD
+=======
+	int rain_max_particles = max_desired_items;
+	float rain_radius = source_radius;
+
+>>>>>>> 1c558d34 (SSS22)
 	// SSS Rain shader is available
 #if defined(USE_DX11)
 	if (RImplementation.o.ssfx_rain)
@@ -76,10 +82,19 @@ void dxRainRender::Render(CEffect_Rain& owner)
 		_drop_width = ps_ssfx_rain_1.y;
 		_drop_speed = ps_ssfx_rain_1.z;
 		_splash_SH = SH_Splash;
+<<<<<<< HEAD
 	}
 #endif
 
 	u32 desired_items = iFloor(0.01f * (1.f + factor * 99.0f) * float(max_desired_items));
+=======
+		rain_max_particles = ps_ssfx_rain_drops_setup.x;
+		rain_radius = ps_ssfx_rain_drops_setup.y;
+	}
+#endif
+
+	u32 desired_items = iFloor(0.01f * (1.f + factor * 99.0f) * float(rain_max_particles));
+>>>>>>> 1c558d34 (SSS22)
 
 	// Get to the desired items
 	if (current_items < desired_items)
@@ -91,14 +106,22 @@ void dxRainRender::Render(CEffect_Rain& owner)
 	u32 u_rain_color = color_rgba_f(f_rain_color.x, f_rain_color.y, f_rain_color.z, factor_visual);
 
 	// born _new_ if needed
+<<<<<<< HEAD
 	float b_radius_wrap_sqr = _sqr((source_radius * 1.5f));
+=======
+	float b_radius_wrap_sqr = _sqr((rain_radius * 1.5f));
+>>>>>>> 1c558d34 (SSS22)
 	if (owner.items.size() < current_items)
 	{
 		// owner.items.reserve		(desired_items);
 		while (owner.items.size() < current_items)
 		{
 			CEffect_Rain::Item one;
+<<<<<<< HEAD
 			owner.Born(one, source_radius, _drop_speed);
+=======
+			owner.Born(one, rain_radius, _drop_speed);
+>>>>>>> 1c558d34 (SSS22)
 			owner.items.push_back(one);
 		}
 	}
@@ -127,7 +150,11 @@ void dxRainRender::Render(CEffect_Rain& owner)
 		}
 		if (one.dwTime_Life < Device.dwTimeGlobal)
 		{
+<<<<<<< HEAD
 			owner.Born(one, source_radius, _drop_speed);
+=======
+			owner.Born(one, rain_radius, _drop_speed);
+>>>>>>> 1c558d34 (SSS22)
 			if (current_items > desired_items) current_items--; // Out of life ( invalidated, never hit something, etc. )
 		}
 
@@ -155,7 +182,7 @@ void dxRainRender::Render(CEffect_Rain& owner)
 				Fvector inv_dir, src_p;
 				inv_dir.invert(one.D);
 				wdir.div(wlen);
-				one.P.mad(one.P, wdir, -(wlen + source_radius));
+				one.P.mad(one.P, wdir, -(wlen + rain_radius));
 				if (src_plane.intersectRayPoint(one.P, inv_dir, src_p))
 				{
 					float dist_sqr = one.P.distance_to_sqr(src_p);

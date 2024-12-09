@@ -35,7 +35,11 @@ void light::vis_prepare()
 	bool skiptest = false;
 	if (ps_r2_ls_flags.test(R2FLAG_EXP_DONT_TEST_UNSHADOWED) && !flags.bShadow) skiptest = true;
 	if (ps_r2_ls_flags.test(R2FLAG_EXP_DONT_TEST_SHADOWED) && flags.bShadow) skiptest = true;
+<<<<<<< HEAD
 	if (ps_ssfx_volumetric.x > 0 && flags.bShadow) skiptest = true; // Temp Fix
+=======
+	//if (ps_ssfx_volumetric.x > 0 && flags.bShadow) skiptest = true; // Temp Fix
+>>>>>>> 1c558d34 (SSS22)
 
 	vis.distance = Device.vCameraPosition.distance_to(spatial.sphere.P);
 

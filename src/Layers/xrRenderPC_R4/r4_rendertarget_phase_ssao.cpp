@@ -449,4 +449,8 @@ void CRenderTarget::phase_ssfx_il()
 
 
 	set_viewport_size(HW.pContext, w, h);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1c558d34 (SSS22)

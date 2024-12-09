@@ -555,10 +555,14 @@ Shader* CResourceManager::_lua_Create(LPCSTR d_shader, LPCSTR s_textures)
 				C.L_textures[0], C.detail_texture, C.detail_scaler);
 			S.E[0] = C._lua_Compile(s_shader, "normal");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 			
 >>>>>>> f2119a9b (SSS21)
+=======
+			
+>>>>>>> 1c558d34 (SSS22)
 /// SSS fix water for DX10
 #if RENDER == R_R4
 			// Water Flag

@@ -53,7 +53,63 @@ public:
 	CBlender_ssfx_ao();
 	virtual ~CBlender_ssfx_ao();
 <<<<<<< HEAD
+<<<<<<< HEAD
 };
 =======
 };
 >>>>>>> f2119a9b (SSS21)
+=======
+};
+
+class CBlender_ssfx_sss : public IBlender
+{
+public:
+	virtual LPCSTR getComment() { return "ssfx_sss"; }
+	virtual BOOL canBeDetailed() { return FALSE; }
+	virtual BOOL canBeLMAPped() { return FALSE; }
+
+	virtual void Compile(CBlender_Compile& C);
+
+	CBlender_ssfx_sss();
+	virtual ~CBlender_ssfx_sss();
+};
+
+class CBlender_ssfx_sss_ext : public IBlender
+{
+public:
+	virtual LPCSTR getComment() { return "ssfx_sss_ext"; }
+	virtual BOOL canBeDetailed() { return FALSE; }
+	virtual BOOL canBeLMAPped() { return FALSE; }
+
+	virtual void Compile(CBlender_Compile& C);
+
+	CBlender_ssfx_sss_ext();
+	virtual ~CBlender_ssfx_sss_ext();
+};
+
+class CBlender_ssfx_rain : public IBlender
+{
+public:
+	virtual LPCSTR getComment() { return "ssfx_rain"; }
+	virtual BOOL canBeDetailed() { return FALSE; }
+	virtual BOOL canBeLMAPped() { return FALSE; }
+
+	virtual void Compile(CBlender_Compile& C);
+
+	CBlender_ssfx_rain();
+	virtual ~CBlender_ssfx_rain();
+};
+
+class CBlender_ssfx_water_blur : public IBlender
+{
+public:
+	virtual LPCSTR getComment() { return "ssfx_water"; }
+	virtual BOOL canBeDetailed() { return FALSE; }
+	virtual BOOL canBeLMAPped() { return FALSE; }
+
+	virtual void Compile(CBlender_Compile& C);
+
+	CBlender_ssfx_water_blur();
+	virtual ~CBlender_ssfx_water_blur();
+};
+>>>>>>> 1c558d34 (SSS22)

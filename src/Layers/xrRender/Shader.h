@@ -130,10 +130,13 @@ public:
 		u32 isLandscape : 1;
 		u32 isWater : 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		u32 iScopeLense : 2; //  Redotix99: for 3D Shader Based Scopes 		
 =======
 >>>>>>> f2119a9b (SSS21)
+=======
+>>>>>>> 1c558d34 (SSS22)
 	};
 
 public:

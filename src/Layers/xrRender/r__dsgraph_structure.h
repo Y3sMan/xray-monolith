@@ -201,10 +201,14 @@ public:
 	void r_dsgraph_render_hud_ui();
 	void r_dsgraph_render_lods(bool _setup_zb, bool _clear);
 	void r_dsgraph_render_sorted();
+<<<<<<< HEAD
 #if defined(USE_DX11)
 	void r_dsgraph_render_ScopeSorted(); // Redotix99: for 3D Shader Based Scopes
 #endif
 	void r_dsgraph_render_emissive();
+=======
+	void r_dsgraph_render_emissive(bool clear = true, bool renderHUD = false);
+>>>>>>> 1c558d34 (SSS22)
 	void r_dsgraph_render_wmarks();
 	void r_dsgraph_render_distort();
 	void r_dsgraph_render_subspace(IRender_Sector* _sector, CFrustum* _frustum, Fmatrix& mCombined, Fvector& _cop,

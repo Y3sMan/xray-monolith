@@ -154,11 +154,16 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic(dxRender_Visual* pVisual, Fve
 			N->val.se = sh;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if RENDER==R_R4
 			if (RImplementation.o.ssfx_core && !sh->passes[0]->ps->hud_disabled)
 =======
 			if (!sh->passes[0]->ps->hud_disabled)
 >>>>>>> f2119a9b (SSS21)
+=======
+#if RENDER==R_R4
+			if (RImplementation.o.ssfx_core && !sh->passes[0]->ps->hud_disabled)
+>>>>>>> 1c558d34 (SSS22)
 			{
 				HUDMask_Node* N2 = HUDMask.insertInAnyWay(distSQ);
 				N2->val.ssa = SSA;
@@ -168,9 +173,13 @@ void R_dsgraph_structure::r_dsgraph_insert_dynamic(dxRender_Visual* pVisual, Fve
 				N2->val.se = sh;
 			}
 <<<<<<< HEAD
+<<<<<<< HEAD
 #endif
 =======
 >>>>>>> f2119a9b (SSS21)
+=======
+#endif
+>>>>>>> 1c558d34 (SSS22)
 
 #if RENDER!=R_R1
 			if (sh->flags.bEmissive)
@@ -371,11 +380,16 @@ void R_dsgraph_structure::r_dsgraph_insert_static(dxRender_Visual* pVisual)
 
 	// Water rendering
 <<<<<<< HEAD
+<<<<<<< HEAD
 #if RENDER==R_R4
 	if (sh->flags.isWater && RImplementation.o.ssfx_water)
 =======
 	if (sh->flags.isWater)
 >>>>>>> f2119a9b (SSS21)
+=======
+#if RENDER==R_R4
+	if (sh->flags.isWater && RImplementation.o.ssfx_water)
+>>>>>>> 1c558d34 (SSS22)
 	{
 		mapWater_Node* N = mapWater.insertInAnyWay(distSQ);
 		N->val.ssa = SSA;
@@ -386,9 +400,13 @@ void R_dsgraph_structure::r_dsgraph_insert_static(dxRender_Visual* pVisual)
 		return;
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 #endif
 =======
 >>>>>>> f2119a9b (SSS21)
+=======
+#endif
+>>>>>>> 1c558d34 (SSS22)
 
 	// strict-sorting selection
 	if (sh->flags.bStrictB2F)
