@@ -202,6 +202,7 @@ function init_opt_base()
 			},
 			{
 				id = "render_short_tracers",
+<<<<<<< HEAD
 				type = "check",
 				val = 1,
 				def = true,
@@ -212,6 +213,20 @@ function init_opt_base()
 				type = "check",
 				val = 1,
 				def = true,
+=======
+				type = "list",
+				val = 0,
+				curr = {function() return get_console_cmd(0, "render_short_tracers") end},
+				content = {function() return {{"1", "ON"}, {"0", "OFF"}} end},
+				cmd = "render_short_tracers",
+			},
+			{
+				id = "allow_silencer_hide_tracer",
+				type = "list",
+				val = 0,
+				curr = {function() return get_console_cmd(0, "allow_silencer_hide_tracer") end},
+				content = {function() return {{"1", "ON"}, {"0", "OFF"}} end},
+>>>>>>> 59db5465 (Merge pull request #112 from etapomom/all-in-one-vs2022-wpo)
 				cmd = "allow_silencer_hide_tracer",
 			},
 
@@ -386,37 +401,72 @@ function init_opt_base()
 			},
 			{
 				id = "allow_outfit_control_inertion_factor",
+<<<<<<< HEAD
 				type = "check",
 				val = 1,
 				def = false,
+=======
+				type = "list",
+				val = 0,
+				curr = {function() return get_console_cmd(0, "allow_outfit_control_inertion_factor") end},
+				content = {function() return {{"1", "ON"}, {"0", "OFF"}} end},
+>>>>>>> 59db5465 (Merge pull request #112 from etapomom/all-in-one-vs2022-wpo)
 				cmd = "allow_outfit_control_inertion_factor",
 			},
 			{
 				id = "allow_weapon_control_inertion_factor",
+<<<<<<< HEAD
 				type = "check",
 				val = 1,
 				def = false,
+=======
+				type = "list",
+				val = 0,
+				curr = {function() return get_console_cmd(0, "allow_weapon_control_inertion_factor") end},
+				content = {function() return {{"1", "ON"}, {"0", "OFF"}} end},
+>>>>>>> 59db5465 (Merge pull request #112 from etapomom/all-in-one-vs2022-wpo)
 				cmd = "allow_weapon_control_inertion_factor",
 			},
 			{
 				id = "fix_avelocity_spread",
+<<<<<<< HEAD
 				type = "check",
 				val = 1,
 				def = false,
+=======
+				type = "list",
+				val = 0,
+				curr = {function() return get_console_cmd(0, "fix_avelocity_spread") end},
+				content = {function() return {{"1", "ON"}, {"0", "OFF"}} end},
+>>>>>>> 59db5465 (Merge pull request #112 from etapomom/all-in-one-vs2022-wpo)
 				cmd = "fix_avelocity_spread",
 			},
 			{
 				id = "apply_pdm_to_ads",
+<<<<<<< HEAD
 				type = "check",
 				val = 1,
 				def = false,
+=======
+				type = "list",
+				val = 0,
+				curr = {function() return get_console_cmd(0, "apply_pdm_to_ads") end},
+				content = {function() return {{"1", "ON"}, {"0", "OFF"}} end},
+>>>>>>> 59db5465 (Merge pull request #112 from etapomom/all-in-one-vs2022-wpo)
 				cmd = "apply_pdm_to_ads",
 			},
 			{
 				id = "smooth_ads_transition",
+<<<<<<< HEAD
 				type = "check",
 				val = 1,
 				def = false,
+=======
+				type = "list",
+				val = 0,
+				curr = {function() return get_console_cmd(0, "smooth_ads_transition") end},
+				content = {function() return {{"1", "ON"}, {"0", "OFF"}} end},
+>>>>>>> 59db5465 (Merge pull request #112 from etapomom/all-in-one-vs2022-wpo)
 				cmd = "smooth_ads_transition",
 			},
 
