@@ -4,7 +4,10 @@
 
 // Common
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 extern ECORE_API Fvector4 ps_ssfx_rain_drops_setup;
 extern ECORE_API int ps_ssfx_terrain_grass_align;
 extern ECORE_API int ps_ssfx_terrain_pom_refine;
@@ -16,7 +19,10 @@ extern ECORE_API Fvector4 ps_ssfx_bloom_2;
 extern ECORE_API Fvector4 ps_ssfx_sss_quality;
 extern ECORE_API Fvector4 ps_ssfx_sss;
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 extern ECORE_API int ps_ssfx_il_quality;
 extern ECORE_API int ps_ssfx_ao_quality;
 extern ECORE_API Fvector3 ps_ssfx_water_quality;

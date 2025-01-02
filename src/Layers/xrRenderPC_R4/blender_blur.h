@@ -55,11 +55,14 @@ public:
 <<<<<<< HEAD
 <<<<<<< HEAD
 };
+<<<<<<< HEAD
 =======
 };
 >>>>>>> f2119a9b (SSS21)
 =======
 };
+=======
+>>>>>>> single_wpn_dev
 
 class CBlender_ssfx_sss : public IBlender
 {
@@ -111,5 +114,9 @@ public:
 
 	CBlender_ssfx_water_blur();
 	virtual ~CBlender_ssfx_water_blur();
+<<<<<<< HEAD
 };
 >>>>>>> 1c558d34 (SSS22)
+=======
+};
+>>>>>>> single_wpn_dev

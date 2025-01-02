@@ -221,12 +221,17 @@ void CRender::render_lights(light_Package& LP)
 
 				// Adjust resolution
 <<<<<<< HEAD
+<<<<<<< HEAD
 				if (RImplementation.o.ssfx_volumetric && ps_ssfx_volumetric.w > 1)
 					Target->set_viewport_size(HW.pContext, w / ps_ssfx_volumetric.w, h / ps_ssfx_volumetric.w);
 =======
 				if (RImplementation.o.ssfx_volumetric)
 					Target->set_viewport_size(HW.pContext, w / 8, h / 8);
 >>>>>>> 1c558d34 (SSS22)
+=======
+				if (RImplementation.o.ssfx_volumetric)
+					Target->set_viewport_size(HW.pContext, w / 8, h / 8);
+>>>>>>> single_wpn_dev
 
 				for (u32 it = 0; it < L_spot_s.size(); it++)
 				{
@@ -235,10 +240,14 @@ void CRender::render_lights(light_Package& LP)
 				
 				// Restore resolution
 <<<<<<< HEAD
+<<<<<<< HEAD
 				if (RImplementation.o.ssfx_volumetric && ps_ssfx_volumetric.w > 1)
 =======
 				if (RImplementation.o.ssfx_volumetric)
 >>>>>>> 1c558d34 (SSS22)
+=======
+				if (RImplementation.o.ssfx_volumetric)
+>>>>>>> single_wpn_dev
 					Target->set_viewport_size(HW.pContext, w, h);
 			}
 

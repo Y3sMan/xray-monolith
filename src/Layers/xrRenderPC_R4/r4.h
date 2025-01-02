@@ -69,10 +69,15 @@ public:
 		u32 ssfx_il : 1;
 		u32 ssfx_core : 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		u32 ssfx_bloom : 1;
 		u32 ssfx_sss : 1;
 >>>>>>> 1c558d34 (SSS22)
+=======
+		u32 ssfx_bloom : 1;
+		u32 ssfx_sss : 1;
+>>>>>>> single_wpn_dev
 
 		u32 bug : 1;
 

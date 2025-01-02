@@ -386,8 +386,11 @@ float hud_fov_aim_factor = 0;
 =======
 >>>>>>> f2119a9b (SSS21)
 // Screen Space Shaders Stuff
+<<<<<<< HEAD
 =======
 // Screen Space Shaders Stuff
+=======
+>>>>>>> single_wpn_dev
 int ps_ssfx_pom_refine = 0;
 Fvector4 ps_ssfx_pom = { 16, 12, 0.035f, 0.4f };  // Samples , Range, Height, AO
 
@@ -403,7 +406,10 @@ Fvector4 ps_ssfx_bloom_2 = { 3.0f, 1.5f, 1.5f, 1.0f }; // Blur Radius, Vibrance,
 Fvector4 ps_ssfx_sss_quality = { 12.0f, 4.0f, 1.0f, 1.0f }; // Dir Samples, Omni Samples, Dir Enable, Omni Enable
 Fvector4 ps_ssfx_sss = { 1.0f, 1.0f, 1.0f, 0.0f }; // Dir Len, Omni Len, Grass shadows, -
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 float ps_ssfx_hud_hemi = 0.15f; // HUD Hemi Offset
 
 int ps_ssfx_il_quality = 32; // IL Samples
@@ -424,6 +430,7 @@ Fvector4 ps_ssfx_ssr = { 1.0f, 0.2f, 0.0f, 0.0f }; // Res, Blur, Temp, Noise
 Fvector4 ps_ssfx_ssr_2 = { 0.0f, 1.3f, 1.0f, 0.015f }; // Quality, Fade, Int, Wpn Int
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Fvector4 ps_ssfx_terrain_quality = { 6, 0, 0, 0 };
 Fvector4 ps_ssfx_terrain_offset = { 0, 0, 0, 0 };
 
@@ -436,6 +443,13 @@ Fvector4 ps_ssfx_terrain_offset = { 0, 0, 0, 0 };
 Fvector3 ps_ssfx_shadows = { 256, 1536, 0.0f }; // LOD min res, LOD max res, -
 Fvector4 ps_ssfx_volumetric = { 1.0f, 1.0f, 3.0f, 1.0f }; // Force Volumetric, Vol Intensity, Vol Quality, -
 >>>>>>> 1c558d34 (SSS22)
+=======
+Fvector4 ps_ssfx_terrain_quality = { 8, 0, 0, 0 };
+Fvector4 ps_ssfx_terrain_offset = { 0, 0, 0, 0 };
+
+Fvector3 ps_ssfx_shadows = { 256, 1536, 0.0f }; // LOD min res, LOD max res, -
+Fvector4 ps_ssfx_volumetric = { 1.0f, 1.0f, 3.0f, 1.0f }; // Force Volumetric, Vol Intensity, Vol Quality, -
+>>>>>>> single_wpn_dev
 
 Fvector3 ps_ssfx_shadow_bias = { 0.4f, 0.03f, 0.0f };
 
@@ -465,9 +479,13 @@ Fvector4 ps_ssfx_rain_1 = { 2.0f, 0.1f, 0.6f, 2.f }; // Len, Width, Speed, Quali
 Fvector4 ps_ssfx_rain_2 = { 0.5f, 0.1f, 1.0f, 0.5f }; // Alpha, Brigthness, Refraction, Reflection
 Fvector4 ps_ssfx_rain_3 = { 0.5f, 1.0f, 0.0f, 0.0f }; // Alpha, Refraction ( Splashes )
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 Fvector4 ps_ssfx_rain_drops_setup = { 2500, 15, 0.0f, 0.0f };
 >>>>>>> 1c558d34 (SSS22)
+=======
+Fvector4 ps_ssfx_rain_drops_setup = { 2500, 15, 0.0f, 0.0f };
+>>>>>>> single_wpn_dev
 
 Fvector3 ps_ssfx_shadow_cascades = { 20, 40, 160 };
 Fvector4 ps_ssfx_grass_shadows = { .0f, .35f, 30.0f, .0f };
@@ -1352,8 +1370,11 @@ void xrRender_initconsole()
 =======
 >>>>>>> f2119a9b (SSS21)
 	// Screen Space Shaders
+<<<<<<< HEAD
 =======
 	// Screen Space Shaders
+=======
+>>>>>>> single_wpn_dev
 	CMD4(CCC_Integer, "ssfx_pom_refine", &ps_ssfx_pom_refine, 0, 1);
 	CMD4(CCC_Vector4, "ssfx_pom", &ps_ssfx_pom, Fvector4().set(0, 0, 0, 0), Fvector4().set(36, 60, 1, 1));
 
@@ -1368,7 +1389,10 @@ void xrRender_initconsole()
 	CMD4(CCC_Vector4, "ssfx_sss_quality", &ps_ssfx_sss_quality, Fvector4().set(1, 1, 0, 0), Fvector4().set(24, 12, 1, 1));
 	CMD4(CCC_Vector4, "ssfx_sss", &ps_ssfx_sss, Fvector4().set(0, 0, 0, 0), Fvector4().set(3, 3, 1, 1));
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 	CMD4(CCC_Float, "ssfx_hud_hemi", &ps_ssfx_hud_hemi, 0.0f, 1.0f);
 
 	CMD4(CCC_Integer, "ssfx_il_quality", &ps_ssfx_il_quality, 16, 64);
@@ -1389,10 +1413,14 @@ void xrRender_initconsole()
 	CMD4(CCC_Vector4, "ssfx_ssr_2", &ps_ssfx_ssr_2, Fvector4().set(0, 0, 0, 0), Fvector4().set(2, 2, 2, 2));
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	CMD4(CCC_Vector4, "ssfx_terrain_quality", &ps_ssfx_terrain_quality, Fvector4().set(0, 0, 0, 0), Fvector4().set(12, 0, 0, 0));
 =======
 	CMD4(CCC_Vector4, "ssfx_terrain_quality", &ps_ssfx_terrain_quality, Fvector4().set(0, 0, 0, 0), Fvector4().set(40, 0, 0, 0));
 >>>>>>> 1c558d34 (SSS22)
+=======
+	CMD4(CCC_Vector4, "ssfx_terrain_quality", &ps_ssfx_terrain_quality, Fvector4().set(0, 0, 0, 0), Fvector4().set(40, 0, 0, 0));
+>>>>>>> single_wpn_dev
 	CMD4(CCC_Vector4, "ssfx_terrain_offset", &ps_ssfx_terrain_offset, Fvector4().set(-1, -1, -1, -1), Fvector4().set(1, 1, 1, 1));
 
 	CMD4(CCC_Vector3, "ssfx_shadows", &ps_ssfx_shadows, Fvector3().set(128, 1536, 0), Fvector3().set(1536, 4096, 0));
@@ -1424,9 +1452,13 @@ void xrRender_initconsole()
 	CMD4(CCC_Vector4, "ssfx_blood_decals", &ps_ssfx_blood_decals, Fvector4().set(0, 0, 0, 0), Fvector4().set(5, 5, 0, 0));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	CMD4(CCC_Vector4, "ssfx_rain_drops_setup", &ps_ssfx_rain_drops_setup, Fvector4().set(1000, 10, 0, 0), Fvector4().set(5000, 30, 0, 0));
 >>>>>>> 1c558d34 (SSS22)
+=======
+	CMD4(CCC_Vector4, "ssfx_rain_drops_setup", &ps_ssfx_rain_drops_setup, Fvector4().set(1000, 10, 0, 0), Fvector4().set(5000, 30, 0, 0));
+>>>>>>> single_wpn_dev
 	CMD4(CCC_Vector4, "ssfx_rain_1", &ps_ssfx_rain_1, Fvector4().set(0, 0, 0, 0), Fvector4().set(10, 5, 5, 2));
 	CMD4(CCC_Vector4, "ssfx_rain_2", &ps_ssfx_rain_2, Fvector4().set(0, 0, 0, 0), Fvector4().set(1, 10, 10, 10));
 	CMD4(CCC_Vector4, "ssfx_rain_3", &ps_ssfx_rain_3, Fvector4().set(0, 0, 0, 0), Fvector4().set(1, 10, 10, 10));

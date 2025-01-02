@@ -378,14 +378,20 @@ void CDetailManager::UpdateVisibleM()
 							sp.r_items[vis_id].push_back(*siIT);
 							
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 							if (S.hidden)
 							{
 								Item.alpha = 0;
 								S.hidden = false;
 							}
 							Item.alpha_target = 1;
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 							Item.distance = dist_sq;
 							Item.position = S.vis.sphere.P;
 							//2							visible[vis_id][sp.id].push_back(&Item);

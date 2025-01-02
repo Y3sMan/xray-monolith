@@ -484,6 +484,7 @@ void CRender::create()
 	o.ssfx_ao = FS.exist(fn, "$game_shaders$", "r3\\ssfx_ao", ".ps") ? 1 : 0;
 	o.ssfx_il = FS.exist(fn, "$game_shaders$", "r3\\ssfx_il", ".ps") ? 1 : 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	Msg("- Supports SSS UPDATE 21");
 =======
@@ -492,6 +493,12 @@ void CRender::create()
 
 	Msg("- Supports SSS UPDATE 22");
 >>>>>>> 1c558d34 (SSS22)
+=======
+	o.ssfx_sss = FS.exist(fn, "$game_shaders$", "r3\\ssfx_sss", ".ps") ? 1 : 0;
+	o.ssfx_bloom = FS.exist(fn, "$game_shaders$", "r3\\ssfx_bloom", ".ps") ? 1 : 0;
+
+	Msg("- Supports SSS UPDATE 22");
+>>>>>>> single_wpn_dev
 	Msg("- SSS CORE INSTALLED %i", o.ssfx_core);
 	Msg("- SSS HUD RAINDROPS SHADER INSTALLED %i", o.ssfx_hud_raindrops);
 	Msg("- SSS RAIN SHADER INSTALLED %i", o.ssfx_rain);
@@ -504,10 +511,15 @@ void CRender::create()
 	Msg("- SSS AO SHADER INSTALLED %i", o.ssfx_ao);
 	Msg("- SSS IL SHADER INSTALLED %i", o.ssfx_il);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	Msg("- SSS SSS SHADER INSTALLED %i", o.ssfx_sss);
 	Msg("- SSS BLOOM SHADER INSTALLED %i", o.ssfx_bloom);
 >>>>>>> 1c558d34 (SSS22)
+=======
+	Msg("- SSS SSS SHADER INSTALLED %i", o.ssfx_sss);
+	Msg("- SSS BLOOM SHADER INSTALLED %i", o.ssfx_bloom);
+>>>>>>> single_wpn_dev
 
 	// constants
 	CResourceManager* RM = dxRenderDeviceRender::Instance().Resources;
@@ -1289,12 +1301,18 @@ HRESULT CRender::shader_compile(
 	
 	// SSS preprocessor stuff
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 	char c_ssfx_sss_dir_quality[32];
 	char c_ssfx_sss_omni_quality[32];
 	char c_ssfx_terrain_pom_refine[32];
 	char c_ssfx_pom_refine[32];
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 	char c_ssfx_il[32];
 	char c_ssfx_ao[32];
 	char c_ssfx_water[32];
@@ -1826,7 +1844,10 @@ HRESULT CRender::shader_compile(
 	len += xr_strlen(c_ssfx_ao);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 	xr_sprintf(c_ssfx_pom_refine, "%d", u8(min(max(ps_ssfx_pom_refine, 0), 1)));
 	defines[def_it].Name = "SSFX_POM_REFINE";
 	defines[def_it].Definition = c_ssfx_pom_refine;
@@ -1855,7 +1876,10 @@ HRESULT CRender::shader_compile(
 	xr_strcat(sh_name, c_ssfx_sss_omni_quality);
 	len += xr_strlen(c_ssfx_sss_omni_quality);
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 	defines[def_it].Name = "SSFX_MODEXE";
 	defines[def_it].Definition = "1";
 	def_it++;

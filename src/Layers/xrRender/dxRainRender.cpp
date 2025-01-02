@@ -69,11 +69,17 @@ void dxRainRender::Render(CEffect_Rain& owner)
 	static shared_str s_shader_setup = "ssfx_rain_setup";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	int rain_max_particles = max_desired_items;
 	float rain_radius = source_radius;
 
 >>>>>>> 1c558d34 (SSS22)
+=======
+	int rain_max_particles = max_desired_items;
+	float rain_radius = source_radius;
+
+>>>>>>> single_wpn_dev
 	// SSS Rain shader is available
 #if defined(USE_DX11)
 	if (RImplementation.o.ssfx_rain)
@@ -82,6 +88,7 @@ void dxRainRender::Render(CEffect_Rain& owner)
 		_drop_width = ps_ssfx_rain_1.y;
 		_drop_speed = ps_ssfx_rain_1.z;
 		_splash_SH = SH_Splash;
+<<<<<<< HEAD
 <<<<<<< HEAD
 	}
 #endif
@@ -95,6 +102,14 @@ void dxRainRender::Render(CEffect_Rain& owner)
 
 	u32 desired_items = iFloor(0.01f * (1.f + factor * 99.0f) * float(rain_max_particles));
 >>>>>>> 1c558d34 (SSS22)
+=======
+		rain_max_particles = ps_ssfx_rain_drops_setup.x;
+		rain_radius = ps_ssfx_rain_drops_setup.y;
+	}
+#endif
+
+	u32 desired_items = iFloor(0.01f * (1.f + factor * 99.0f) * float(rain_max_particles));
+>>>>>>> single_wpn_dev
 
 	// Get to the desired items
 	if (current_items < desired_items)
@@ -107,10 +122,14 @@ void dxRainRender::Render(CEffect_Rain& owner)
 
 	// born _new_ if needed
 <<<<<<< HEAD
+<<<<<<< HEAD
 	float b_radius_wrap_sqr = _sqr((source_radius * 1.5f));
 =======
 	float b_radius_wrap_sqr = _sqr((rain_radius * 1.5f));
 >>>>>>> 1c558d34 (SSS22)
+=======
+	float b_radius_wrap_sqr = _sqr((rain_radius * 1.5f));
+>>>>>>> single_wpn_dev
 	if (owner.items.size() < current_items)
 	{
 		// owner.items.reserve		(desired_items);
@@ -118,10 +137,14 @@ void dxRainRender::Render(CEffect_Rain& owner)
 		{
 			CEffect_Rain::Item one;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			owner.Born(one, source_radius, _drop_speed);
 =======
 			owner.Born(one, rain_radius, _drop_speed);
 >>>>>>> 1c558d34 (SSS22)
+=======
+			owner.Born(one, rain_radius, _drop_speed);
+>>>>>>> single_wpn_dev
 			owner.items.push_back(one);
 		}
 	}
@@ -151,10 +174,14 @@ void dxRainRender::Render(CEffect_Rain& owner)
 		if (one.dwTime_Life < Device.dwTimeGlobal)
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			owner.Born(one, source_radius, _drop_speed);
 =======
 			owner.Born(one, rain_radius, _drop_speed);
 >>>>>>> 1c558d34 (SSS22)
+=======
+			owner.Born(one, rain_radius, _drop_speed);
+>>>>>>> single_wpn_dev
 			if (current_items > desired_items) current_items--; // Out of life ( invalidated, never hit something, etc. )
 		}
 

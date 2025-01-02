@@ -95,7 +95,10 @@
 #define		r2_RT_ssfx_il			"$user$ssfx_il" // IL Acc
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 #define		r2_RT_ssfx_sss			"$user$ssfx_sss" // SSS Acc
 #define		r2_RT_ssfx_sss_ext		"$user$ssfx_sss_ext" // SSS Acc
 #define		r2_RT_ssfx_sss_ext2		"$user$ssfx_sss_ext2" // SSS Acc
@@ -119,7 +122,10 @@
 #define		r2_RT_ssfx_bloom_tmp8_2		"$user$ssfx_bloom_tmp8_2" // Bloom
 #define		r2_RT_ssfx_bloom_tmp4_2		"$user$ssfx_bloom_tmp4_2" // Bloom
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 #define		r2_RT_ssfx_prevPos		"$user$ssfx_prev_p" // Prev Position
 
 #define		JITTER(a) r2_jitter #a

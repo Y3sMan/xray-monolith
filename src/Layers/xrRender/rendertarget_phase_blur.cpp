@@ -2,12 +2,18 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 IC bool SortLights(light* i, light* j)
 {
 	return (i->distance < j->distance&& i->sss_priority < j->sss_priority);
 }
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 
 void CRenderTarget::phase_blur()
 {
@@ -366,7 +372,10 @@ void CRenderTarget::phase_ssfx_ssr()
 void CRenderTarget::phase_ssfx_volumetric_blur()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 
 	// Be careful and clear the buffer ( rt_Generic_2 contain unspeakable stuff if no volumetric is written )
 	if (!m_bHasActiveVolumetric)
@@ -382,50 +391,61 @@ void CRenderTarget::phase_ssfx_volumetric_blur()
 		return;
 	}
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 	//Constants
 	u32 Offset = 0;
 	u32 C = color_rgba(0, 0, 0, 255);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	float d_Z = EPS_S;
 	float d_W = 1.0f;
+=======
+	FVF::TL* pv;
+>>>>>>> single_wpn_dev
 	float w = float(Device.dwWidth);
 	float h = float(Device.dwHeight);
 
-	float ScaleFactor = ps_ssfx_volumetric.w;
-
 	Fvector2 p0, p1;
 	p0.set(0.0f, 0.0f);
-	p1.set(1.0f / ScaleFactor, 1.0f / ScaleFactor);
+	p1.set(1.0f, 1.0f);
 
-	// Scale Viewport
-	if (ScaleFactor > 1.0)
-		set_viewport_size(HW.pContext, w / ScaleFactor, h / ScaleFactor);
+	// Volumetric always at 1/8 res
+	set_viewport_size(HW.pContext, w / 8, h / 8);
 
-	FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
-	HW.pContext->ClearRenderTargetView(rt_ssfx_accum->pRT, ColorRGBA);
+	ref_rt* rt_VolBlur[2] = { &rt_ssfx_volumetric_tmp, &rt_ssfx_volumetric };
+	int pixelsize[4] = { 0, 1, 1, 2 }; // half pixel + pixelsize
+	float pixelscale[4] = { 2.0f, 0.5f, 2.0f, 0.5f };
 
-	// BLUR PHASE 1 //////////////////////////////////////////////////////////
-	u_setrt(rt_ssfx_accum, 0, 0, NULL); //!RImplementation.o.dx10_msaa ? HW.pBaseZB : rt_MSAADepth->pZRT
-	RCache.set_CullMode(CULL_NONE);
-	RCache.set_Stencil(FALSE);
+	// BLUR ///////////////////////////////////////////////////////////////////
+	for (int b = 0; b < 4; b++)
+	{
+		u_setrt(*rt_VolBlur[b % 2], 0, 0, NULL);
+		RCache.set_CullMode(CULL_NONE);
+		RCache.set_Stencil(FALSE);
 
-	// Fill vertex buffer
-	FVF::TL* pv = (FVF::TL*)RCache.Vertex.Lock(4, g_combine->vb_stride, Offset);
-	pv->set(0, h, d_Z, d_W, C, p0.x, p1.y); pv++;
-	pv->set(0, 0, d_Z, d_W, C, p0.x, p0.y); pv++;
-	pv->set(w, h, d_Z, d_W, C, p1.x, p1.y); pv++;
-	pv->set(w, 0, d_Z, d_W, C, p1.x, p0.y); pv++;
-	RCache.Vertex.Unlock(4, g_combine->vb_stride);
+		// Fill vertex buffer
+		pv = (FVF::TL*)RCache.Vertex.Lock(4, g_combine->vb_stride, Offset);
+		pv->set(0, h, EPS_S, 1.0f, C, 0.0f, 1.0f); pv++;
+		pv->set(0, 0, EPS_S, 1.0f, C, 0.0f, 0.0f); pv++;
+		pv->set(w, h, EPS_S, 1.0f, C, 1.0f, 1.0f); pv++;
+		pv->set(w, 0, EPS_S, 1.0f, C, 1.0f, 0.0f); pv++;
+		RCache.Vertex.Unlock(4, g_combine->vb_stride);
 
-	// Draw COLOR
-	RCache.set_Element(s_ssfx_volumetric_blur->E[0]);
-	RCache.set_c("blur_setup", w, h, 0, 2);
-	RCache.set_Geometry(g_combine);
-	RCache.Render(D3DPT_TRIANGLELIST, Offset, w, h, 0, 2);
+		// Draw COLOR
+		RCache.set_Element(s_ssfx_volumetric_blur->E[b % 2]);
+		RCache.set_c("blur_setup", w / 8, h / 8, pixelsize[b], pixelscale[b]);
+		RCache.set_Geometry(g_combine);
+		RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
+	}
 
+	// Restore Viewport
+	set_viewport_size(HW.pContext, w, h);
 
+<<<<<<< HEAD
 	// BLUR PHASE 2 //////////////////////////////////////////////////////////
 	u_setrt(rt_Generic_2, 0, 0, NULL);
 	RCache.set_CullMode(CULL_NONE);
@@ -490,6 +510,9 @@ void CRenderTarget::phase_ssfx_volumetric_blur()
 
 	// COMBINE ////////////////////////////////////////////////////////////////
 >>>>>>> 1c558d34 (SSS22)
+=======
+	// COMBINE ////////////////////////////////////////////////////////////////
+>>>>>>> single_wpn_dev
 	u_setrt(rt_ssfx_accum, 0, 0, NULL);
 	RCache.set_CullMode(CULL_NONE);
 	RCache.set_Stencil(FALSE);
@@ -497,18 +520,25 @@ void CRenderTarget::phase_ssfx_volumetric_blur()
 	// Fill vertex buffer
 	pv = (FVF::TL*)RCache.Vertex.Lock(4, g_combine->vb_stride, Offset);
 <<<<<<< HEAD
+<<<<<<< HEAD
 	pv->set(0, h, d_Z, d_W, C, p0.x, p1.y); pv++;
 	pv->set(0, 0, d_Z, d_W, C, p0.x, p0.y); pv++;
 	pv->set(w, h, d_Z, d_W, C, p1.x, p1.y); pv++;
 	pv->set(w, 0, d_Z, d_W, C, p1.x, p0.y); pv++;
+=======
+	pv->set(0, h, EPS_S, 1.0f, C, 0.0f, 1.0f); pv++;
+	pv->set(0, 0, EPS_S, 1.0f, C, 0.0f, 0.0f); pv++;
+	pv->set(w, h, EPS_S, 1.0f, C, 1.0f, 1.0f); pv++;
+	pv->set(w, 0, EPS_S, 1.0f, C, 1.0f, 0.0f); pv++;
+>>>>>>> single_wpn_dev
 	RCache.Vertex.Unlock(4, g_combine->vb_stride);
 
 	// Draw COLOR
-	RCache.set_Element(s_ssfx_volumetric_blur->E[0]);
-	RCache.set_c("blur_setup", w, h, 1, 2.0f);
+	RCache.set_Element(s_ssfx_volumetric_blur->E[5]);
 	RCache.set_Geometry(g_combine);
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
 
+<<<<<<< HEAD
 
 	// BLUR PHASE 4 //////////////////////////////////////////////////////////
 	u_setrt(rt_Generic_2, 0, 0, NULL);
@@ -547,6 +577,9 @@ void CRenderTarget::phase_ssfx_volumetric_blur()
 
 	HW.pContext->CopyResource(rt_Generic_2->pTexture->surface_get(), rt_ssfx_accum->pTexture->surface_get());
 >>>>>>> 1c558d34 (SSS22)
+=======
+	HW.pContext->CopyResource(rt_Generic_2->pTexture->surface_get(), rt_ssfx_accum->pTexture->surface_get());
+>>>>>>> single_wpn_dev
 };
 
 void CRenderTarget::phase_ssfx_water_blur()
@@ -583,10 +616,14 @@ void CRenderTarget::phase_ssfx_water_blur()
 
 		// Draw COLOR
 <<<<<<< HEAD
+<<<<<<< HEAD
 		RCache.set_Element(s_ssfx_volumetric_blur->E[2]);
 =======
 		RCache.set_Element(s_ssfx_water_blur->E[0]);
 >>>>>>> 1c558d34 (SSS22)
+=======
+		RCache.set_Element(s_ssfx_water_blur->E[0]);
+>>>>>>> single_wpn_dev
 		RCache.set_c("blur_setup", 1, 0, 0, 2.0f / ps_ssfx_water.x);
 		RCache.set_Geometry(g_combine);
 		RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
@@ -606,10 +643,14 @@ void CRenderTarget::phase_ssfx_water_blur()
 
 		// Draw COLOR
 <<<<<<< HEAD
+<<<<<<< HEAD
 		RCache.set_Element(s_ssfx_volumetric_blur->E[3]);
 =======
 		RCache.set_Element(s_ssfx_water_blur->E[1]);
 >>>>>>> 1c558d34 (SSS22)
+=======
+		RCache.set_Element(s_ssfx_water_blur->E[1]);
+>>>>>>> single_wpn_dev
 		RCache.set_c("blur_setup", 0, 1, 0, 1.0f);
 
 		RCache.set_Geometry(g_combine);
@@ -633,10 +674,14 @@ void CRenderTarget::phase_ssfx_water_blur()
 
 		// Draw COLOR
 <<<<<<< HEAD
+<<<<<<< HEAD
 		RCache.set_Element(s_ssfx_volumetric_blur->E[4]);
 =======
 		RCache.set_Element(s_ssfx_water_blur->E[2]);
 >>>>>>> 1c558d34 (SSS22)
+=======
+		RCache.set_Element(s_ssfx_water_blur->E[2]);
+>>>>>>> single_wpn_dev
 		RCache.set_c("blur_setup", 0, 0, 0, 2.0f / ps_ssfx_water.x);
 		RCache.set_Geometry(g_combine);
 		RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
@@ -679,10 +724,14 @@ void CRenderTarget::phase_ssfx_water_waves()
 
 	// Draw COLOR
 <<<<<<< HEAD
+<<<<<<< HEAD
 	RCache.set_Element(s_ssfx_volumetric_blur->E[5]);
 =======
 	RCache.set_Element(s_ssfx_water_blur->E[5]);
 >>>>>>> 1c558d34 (SSS22)
+=======
+	RCache.set_Element(s_ssfx_water_blur->E[5]);
+>>>>>>> single_wpn_dev
 	RCache.set_c("wind_setup", g_pGamePersistent->Environment().wind_anim.w, g_pGamePersistent->Environment().CurrentEnv->wind_velocity, 0, 0);
 	RCache.set_Geometry(g_combine);
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
@@ -691,7 +740,10 @@ void CRenderTarget::phase_ssfx_water_waves()
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 void CRenderTarget::phase_ssfx_sss()
 {
 	//Constants
@@ -1034,5 +1086,8 @@ void CRenderTarget::phase_ssfx_sss_ext(light_Package& LP)
 	RCache.Render(D3DPT_TRIANGLELIST, Offset, 0, 4, 0, 2);
 }
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 #endif

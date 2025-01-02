@@ -289,6 +289,7 @@ void CRenderTarget::accum_volumetric(light* L)
 	if (!L->flags.bVolumetric) return;
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	/*float w = float(Device.dwWidth);
 	float h = float(Device.dwHeight);
 
@@ -312,6 +313,24 @@ void CRenderTarget::accum_volumetric(light* L)
 
 		u_setrt(rt_ssfx_volumetric, NULL, NULL, NULL);
 
+=======
+	if (!RImplementation.o.ssfx_volumetric)
+	{
+		phase_vol_accumulator();
+	}
+	else
+	{
+		if (!m_bHasActiveVolumetric_spot)
+		{
+			m_bHasActiveVolumetric_spot = true;
+
+			FLOAT ColorRGBA[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+			HW.pContext->ClearRenderTargetView(rt_ssfx_volumetric->pRT, ColorRGBA);
+		}
+
+		u_setrt(rt_ssfx_volumetric, NULL, NULL, NULL);
+
+>>>>>>> single_wpn_dev
 		RCache.set_Stencil(FALSE);
 		RCache.set_CullMode(CULL_NONE);
 		RCache.set_ColorWriteEnable();

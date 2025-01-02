@@ -77,7 +77,10 @@ public:
 
 	// [SSS Stuff]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 	IBlender* b_ssfx_rain;
 	IBlender* b_ssfx_water_blur;
 	IBlender* b_ssfx_bloom_downsample;
@@ -86,7 +89,10 @@ public:
 	IBlender* b_ssfx_bloom_lens;
 	IBlender* b_ssfx_sss_ext;
 	IBlender* b_ssfx_sss;
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 	IBlender* b_ssfx_ssr;
 	IBlender* b_ssfx_volumetric_blur;
 	IBlender* b_ssfx_ao;
@@ -189,6 +195,7 @@ public:
 	ref_rt rt_ssfx_il;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	ref_rt rt_ssfx_prevPos;
 
 	ref_shader s_ssfx_water;
@@ -221,6 +228,35 @@ public:
 	ref_shader s_ssfx_water;
 	ref_shader s_ssfx_water_blur;
 >>>>>>> 1c558d34 (SSS22)
+=======
+	ref_rt rt_ssfx_sss;
+	ref_rt rt_ssfx_sss_ext;
+	ref_rt rt_ssfx_sss_ext2;
+	ref_rt rt_ssfx_sss_tmp;
+	ref_rt rt_ssfx_bloom1;
+	ref_rt rt_ssfx_bloom_emissive;
+	ref_rt rt_ssfx_bloom_lens;
+	ref_rt rt_ssfx_rain;
+	ref_rt rt_ssfx_volumetric;
+	ref_rt rt_ssfx_volumetric_tmp;
+
+	ref_rt rt_ssfx_bloom_tmp2;
+	ref_rt rt_ssfx_bloom_tmp4;
+	ref_rt rt_ssfx_bloom_tmp8;
+	ref_rt rt_ssfx_bloom_tmp16;
+	ref_rt rt_ssfx_bloom_tmp32;
+	ref_rt rt_ssfx_bloom_tmp64;
+
+	ref_rt rt_ssfx_bloom_tmp32_2;
+	ref_rt rt_ssfx_bloom_tmp16_2;
+	ref_rt rt_ssfx_bloom_tmp8_2;
+	ref_rt rt_ssfx_bloom_tmp4_2;
+
+	ref_rt rt_ssfx_prevPos;
+
+	ref_shader s_ssfx_water;
+	ref_shader s_ssfx_water_blur;
+>>>>>>> single_wpn_dev
 	ref_shader s_ssfx_water_ssr;
 	ref_shader s_ssfx_ao;
 	ref_shader s_ssfx_hud[5];
@@ -304,7 +340,10 @@ private:
 
 	// Screen Space Shaders Stuff
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 	ref_shader s_ssfx_rain;
 	ref_shader s_ssfx_bloom;
 	ref_shader s_ssfx_bloom_lens;
@@ -313,7 +352,10 @@ private:
 	ref_shader s_ssfx_sss_ext;
 	ref_shader s_ssfx_sss;
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 	ref_shader s_ssfx_ssr;
 	ref_shader s_ssfx_volumetric_blur;
 
@@ -458,13 +500,19 @@ public:
 
 	// SSS Stuff
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> single_wpn_dev
 	void phase_ssfx_rain(); // Bloom PP
 	void phase_ssfx_bloom(); // Bloom PP
 	void phase_ssfx_sss(); // SSS
 	void phase_ssfx_sss_ext(light_Package& LP); // SSS Spot lights
 
+<<<<<<< HEAD
 >>>>>>> 1c558d34 (SSS22)
+=======
+>>>>>>> single_wpn_dev
 	void phase_ssfx_ssr(); // SSR Phase
 	void phase_ssfx_volumetric_blur(); // Volumetric Blur
 	void phase_ssfx_water_blur(); // Water Blur

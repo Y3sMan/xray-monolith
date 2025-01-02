@@ -121,6 +121,7 @@ void __fastcall water_node(mapSorted_Node* N)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
 =======
 
@@ -131,6 +132,9 @@ void __fastcall water_node(mapSorted_Node* N)
 =======
 
 >>>>>>> 1c558d34 (SSS22)
+=======
+
+>>>>>>> single_wpn_dev
 	RCache.set_xform_world(N->val.Matrix);
 	RImplementation.apply_object(N->val.pObject);
 	RImplementation.apply_lmaterial();
@@ -143,6 +147,7 @@ void __fastcall water_node(mapSorted_Node* N)
 	V->Render(calcLOD(N->key, V->vis.sphere.R));
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -167,6 +172,12 @@ void __fastcall hud_node(mapSorted_Node * N)
 >>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
 =======
 >>>>>>> 1c558d34 (SSS22)
+=======
+void __fastcall hud_node(mapSorted_Node* N)
+{
+	VERIFY(N);
+	dxRender_Visual* V = N->val.pVisual;
+>>>>>>> single_wpn_dev
 	VERIFY(V && V->shader._get());
 	RCache.set_xform_world(N->val.Matrix);
 
@@ -174,12 +185,17 @@ void __fastcall hud_node(mapSorted_Node * N)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> single_wpn_dev
 	if (N->val.se->passes[0]->ps->hud_disabled)
 		return;
-	
+
 	int skinning = N->val.se->passes[0]->vs->skinning;
 	RCache.set_Shader(RImplementation.Target->s_ssfx_hud[skinning]);
+<<<<<<< HEAD
 	
 =======
 
@@ -206,6 +222,9 @@ void __fastcall hud_node(mapSorted_Node * N)
 	RCache.set_Shader(RImplementation.Target->s_ssfx_hud[skinning]);
 
 >>>>>>> 1c558d34 (SSS22)
+=======
+
+>>>>>>> single_wpn_dev
 	RImplementation.Target->Matrix_HUD_previous.set(N->val.PrevMatrix);
 	N->val.PrevMatrix.set(RCache.xforms.m_wvp);
 
@@ -716,6 +735,7 @@ void R_dsgraph_structure::r_dsgraph_render_hud(bool NoPS)
 >>>>>>> 88ed14bf (r__dsgraph_render fix)
 	rmNormal();
 >>>>>>> 4f21308c (fix r__dsgraph_render.cpp)
+
 
 	// Restore projection
 	Device.mProject = Pold;

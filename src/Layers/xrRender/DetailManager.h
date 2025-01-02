@@ -72,21 +72,15 @@ public:
 
 	struct SlotItem
 	{
-		// один кустик
+		// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 		float scale;
 		float scale_calculated;
 		Fmatrix mRotY;
-		u32 vis_ID; // индекс в visibility списке он же тип [не качается, качается1, качается2]
+		u32 vis_ID; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ visibility пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ [пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ1, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ2]
 		float c_hemi;
 		float c_sun;
 		float distance;
 		Fvector position;
-<<<<<<< HEAD
-=======
-		Fvector normal;
-		float alpha;
-		float alpha_target;
->>>>>>> 1c558d34 (SSS22)
 #if RENDER==R_R1
 		Fvector c_rgb;
 #endif
@@ -97,9 +91,9 @@ public:
 	struct SlotPart
 	{
 		// 
-		u32 id; // ID модельки
-		SlotItemVec items; // список кустиков
-		SlotItemVec r_items[3]; // список кустиков for render
+		u32 id; // ID пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+		SlotItemVec items; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+		SlotItemVec r_items[3]; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ for render
 	};
 
 	enum SlotType
@@ -114,7 +108,7 @@ public:
 
 	struct Slot
 	{
-		// распакованый слот размером DETAIL_SLOT_SIZE
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ DETAIL_SLOT_SIZE
 		struct
 		{
 			u32 empty :1;
@@ -122,7 +116,7 @@ public:
 			u32 frame :30;
 		};
 
-		int sx, sz; // координаты слота X x Y
+		int sx, sz; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ X x Y
 		vis_data vis; // 
 		SlotPart G[dm_obj_in_slot]; // 
 		bool hidden;
@@ -208,7 +202,7 @@ public:
 	int cache_cx;
 	int cache_cz;
 
-	PSS poolSI; // pool из которого выделяются SlotItem
+	PSS poolSI; // pool пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ SlotItem
 
 	void UpdateVisibleM();
 	void UpdateVisibleS();

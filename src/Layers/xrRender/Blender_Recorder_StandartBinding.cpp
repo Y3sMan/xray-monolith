@@ -745,16 +745,6 @@ static class cl_near_far_plane : public R_constant_setup
 } binder_near_far_plane;
 
 // Screen Space Shaders Stuff
-<<<<<<< HEAD
-=======
-extern Fvector4 ps_ssfx_pom;
-extern Fvector4 ps_ssfx_terrain_pom;
-
-extern Fvector4 ps_ssfx_bloom_1;
-extern Fvector4 ps_ssfx_bloom_2;
-extern Fvector4 ps_ssfx_il_setup1;
-
->>>>>>> 1c558d34 (SSS22)
 extern float ps_ssfx_hud_hemi;
 extern Fvector4 ps_ssfx_il;
 extern Fvector4 ps_ssfx_il_setup1;
@@ -1108,6 +1098,52 @@ static class ssfx_issvp : public R_constant_setup
 	}
 }    ssfx_issvp;
 
+static class ssfx_bloom_1 : public R_constant_setup
+{
+	virtual void setup(R_constant* C)
+	{
+		Fvector4 BloomSetup = { 0,0,0,0 };
+		if (ps_ssfx_bloom_use_presets)
+		{
+			BloomSetup.x = g_pGamePersistent->Environment().CurrentEnv->bloom_threshold;
+			BloomSetup.y = g_pGamePersistent->Environment().CurrentEnv->bloom_exposure;
+			BloomSetup.w = g_pGamePersistent->Environment().CurrentEnv->bloom_sky_intensity;
+		}
+		else
+		{
+			BloomSetup.x = ps_ssfx_bloom_1.x;
+			BloomSetup.y = ps_ssfx_bloom_1.y;
+			BloomSetup.w = ps_ssfx_bloom_1.w;
+		}
+
+		RCache.set_c(C, BloomSetup);
+	}
+}    ssfx_bloom_1;
+
+static class ssfx_bloom_2 : public R_constant_setup
+{
+	virtual void setup(R_constant* C)
+	{
+		RCache.set_c(C, ps_ssfx_bloom_2);
+	}
+}    ssfx_bloom_2;
+
+static class ssfx_terrain_pom : public R_constant_setup
+{
+	virtual void setup(R_constant* C)
+	{
+		RCache.set_c(C, ps_ssfx_terrain_pom);
+	}
+}    ssfx_terrain_pom;
+
+static class ssfx_pom : public R_constant_setup
+{
+	virtual void setup(R_constant* C)
+	{
+		RCache.set_c(C, ps_ssfx_pom);
+	}
+}    ssfx_pom;
+
 <<<<<<< HEAD
 <<<<<<< HEAD
 /* --- HDR10 parameters --- */
@@ -1382,15 +1418,6 @@ void CBlender_Compile::SetMapping()
 	r_Constant("pda_params", &binder_pda_params);
 
 	// Screen Space Shaders
-<<<<<<< HEAD
-=======
-	r_Constant("ssfx_pom", &ssfx_pom);
-
-	r_Constant("ssfx_terrain_pom", &ssfx_terrain_pom);
-	r_Constant("ssfx_bloom_1", &ssfx_bloom_1);
-	r_Constant("ssfx_bloom_2", &ssfx_bloom_2);
-
->>>>>>> 1c558d34 (SSS22)
 	r_Constant("ssfx_issvp", &ssfx_issvp);
 	r_Constant("ssfx_hud_hemi", &ssfx_hud_hemi);
 	r_Constant("ssfx_il_setup", &ssfx_il);
